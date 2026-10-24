@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Air Pollution — A Threat to Our Planet</title>
+<meta name="description" content="An interactive project on air pollution: its causes, its effects on health and ecosystems, its link to climate change, and the solutions that can bring clean air back." />
+<meta name="theme-color" content="#07090b" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Back to top">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-text">AIR<span class="brand-slash">/</span>PROJECT</span>
+  </a>
+  <nav class="nav-links" id="navLinks" aria-label="Sections">
+    <a href="#threat">Threat</a>
+    <a href="#causes">Causes</a>
+    <a href="#effects">Effects</a>
+    <a href="#climate">Climate</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#airquality">Air quality</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#ideas">Ideas</a>
+  </nav>
+  <a class="nav-cta" href="#pledge">Pledge</a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main>
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="top">
+  <canvas id="haze" aria-hidden="true"></canvas>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="kicker"><span class="pulse" aria-hidden="true"></span>Environmental project &middot; The air we breathe</p>
+    <h1>
+      <span class="line">Air <em>Pollution</em></span>
+      <span class="line line-2">A threat to our planet</span>
+    </h1>
+    <p class="hero-lead">
+      We can survive weeks without food, and days without water — but only minutes
+      without air. Yet the sky above our cities has become one of the greatest
+      environmental risks to human health.
+    </p>
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-num" data-count="99" data-suffix="%">99%</span>
+        <span class="hstat-label">of humanity breathes air above WHO guideline limits</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num" data-count="8.1" data-decimals="1" data-suffix="M">8.1M</span>
+        <span class="hstat-label">deaths linked to air pollution in a single year</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num" data-count="2.1" data-decimals="1" data-suffix="B">2.1B</span>
+        <span class="hstat-label">people still cook with wood, coal or dung</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num" data-count="11000" data-sep="1" data-suffix=" L">11,000 L</span>
+        <span class="hstat-label">of air an adult draws in every day</span>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#threat">Begin the project</a>
+      <a class="btn btn-ghost" href="#pledge">Take the pledge</a>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span></span>scroll</div>
+</section>
+
+<!-- ══════════════════ 01 · THREAT ══════════════════ -->
+<section class="section" id="threat">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">01</span>
+      <div>
+        <p class="eyebrow">The invisible threat</p>
+        <h2>The pollution we cannot see</h2>
+      </div>
+    </div>
+
+    <div class="lede-grid">
+      <p class="lede" data-reveal>
+        Air pollution is the contamination of the atmosphere by substances that harm
+        living things. Some of it is visible — a brown haze over a motorway, smoke
+        rolling from a chimney. Most of it is not. The deadliest particles are
+        smaller than a grain of pollen and travel deep into our lungs and bloodstream.
+      </p>
+      <aside class="note-card" data-reveal>
+        <h3>Did you know?</h3>
+        <p>
+          Roughly <strong>92%</strong> of the world's population lives under skies that
+          fail the World Health Organization's air quality standards — and only
+          <strong>7 countries</strong> met the WHO limit for fine particles in 2024.
+        </p>
+      </aside>
+    </div>
+
+    <h3 class="sub-head" data-reveal>The eight pollutants that matter most</h3>
+    <p class="sub-note" data-reveal>Tap a card to reveal why it is dangerous.</p>
+
+    <div class="pollutants" id="pollutants">
+      <button class="pcard" data-reveal>
+        <span class="psym">PM<sub>2.5</sub></span>
+        <span class="pname">Fine particles</span>
+        <span class="psrc">Traffic, smoke, industry</span>
+        <span class="pextra">So small that 30 of them fit across a human hair. They pass through the lungs' defences into the bloodstream, where they inflame arteries and raise the risk of heart attack and stroke.</span>
+      </button>
+      <button class="pcard" data-reveal>
+        <span class="psym">PM<sub>10</sub></span>
+        <span class="pname">Coarse dust</span>
+        <span class="psrc">Roads, construction, quarries</span>
+        <span class="pextra">Dust, soot and pollen fragments up to ten micrometres wide. They lodge in the nose and upper airways, triggering asthma and persistent coughing.</span>
+      </button>
+      <button class="pcard" data-reveal>
+        <span class="psym">NO<sub>2</sub></span>
+        <span class="pname">Nitrogen dioxide</span>
+        <span class="psrc">Vehicle engines, power plants</span>
+        <span class="pextra">The sharp smell of traffic. It irritates the airways, worsens asthma, and reacts in sunlight to create ground-level ozone — the engine of urban smog.</span>
+      </button>
+      <button class="pcard" data-reveal>
+        <span class="psym">SO<sub>2</sub></span>
+        <span class="pname">Sulphur dioxide</span>
+        <span class="psrc">Coal and oil combustion</span>
+        <span class="pextra">A colourless gas with a choking smell. In the air it turns into sulphuric acid — the main ingredient of acid rain that strips nutrients from soil and kills lakes.</span>
+      </button>
+      <button class="pcard" data-reveal>
+        <span class="psym">O<sub>3</sub></span>
+        <span class="pname">Ground-level ozone</span>
+        <span class="psrc">Formed from NO<sub>2</sub> + sunlight</span>
+        <span class="pextra">A "sunburn of the lungs" that is not emitted directly but cooked up by sunlight. It scars leaves, slashes crop yields and is one of the greenhouse gases warming the planet.</span>
+      </button>
+      <button class="pcard" data-reveal>
+        <span class="psym">CO</span>
+        <span class="pname">Carbon monoxide</span>
+        <span class="psrc">Incomplete combustion, traffic</span>
+        <span class="pextra">Odourless and invisible. It binds to haemoglobin 200 times more strongly than oxygen, quietly starving the heart and brain of oxygen.</span>
+      </button>
+      <button class="pcard" data-reveal>
+        <span class="psym">VOC</span>
+        <span class="pname">Volatile organics</span>
+        <span class="psrc">Paints, fuels, solvents, glues</span>
+        <span class="pextra">A family of carbon compounds that evaporate at room temperature. Several — benzene, formaldehyde — are known carcinogens, and they help ozone form.</span>
+      </button>
+      <button class="pcard" data-reveal>
+        <span class="psym">Pb</span>
+        <span class="pname">Heavy metals</span>
+        <span class="psrc">Smelting, waste, old fuel</span>
+        <span class="pextra">Lead, mercury and cadmium travel as fine dust, settle in soil and water, and accumulate up the food chain. Lead damages the developing brain — no safe level exists.</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 02 · CAUSES ══════════════════ -->
+<section class="section section-alt" id="causes">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">02</span>
+      <div>
+        <p class="eyebrow">Where it comes from</p>
+        <h2>Five causes, one shared source</h2>
+      </div>
+    </div>
+    <p class="section-lead" data-reveal>
+      Almost every pollutant in our air is released by one of five human activities.
+      They are not separate problems: they all trace back to how we move, build,
+      power and throw things away.
+    </p>
+
+    <div class="cause-layout">
+      <div class="cause-list" role="tablist" aria-label="Causes of air pollution">
+        <button class="cause-btn is-active" role="tab" aria-selected="true" data-cause="vehicles">
+          <span class="cb-index">01</span><span class="cb-title">Vehicle emissions</span>
+        </button>
+        <button class="cause-btn" role="tab" aria-selected="false" data-cause="industry">
+          <span class="cb-index">02</span><span class="cb-title">Factory smoke</span>
+        </button>
+        <button class="cause-btn" role="tab" aria-selected="false" data-cause="fossil">
+          <span class="cb-index">03</span><span class="cb-title">Burning fossil fuels</span>
+        </button>
+        <button class="cause-btn" role="tab" aria-selected="false" data-cause="forest">
+          <span class="cb-index">04</span><span class="cb-title">Deforestation</span>
+        </button>
+        <button class="cause-btn" role="tab" aria-selected="false" data-cause="waste">
+          <span class="cb-index">05</span><span class="cb-title">Waste burning</span>
+        </button>
+      </div>
+
+      <div class="cause-panels">
+        <article class="cause-panel is-active" data-panel="vehicles">
+          <h3>Vehicle emissions</h3>
+          <p>
+            There are around 1.5 billion vehicles on the world's roads. Every minute,
+            engines pump out nitrogen oxides, carbon monoxide, soot and carbon dioxide.
+            In cities, road traffic is often the single largest source of the nitrogen
+            dioxide and fine particles that hang over busy streets.
+          </p>
+          <ul class="ticks">
+            <li>Diesel engines emit particularly fine, deeply inhalable soot.</li>
+            <li>Cold engines, idling and traffic jams waste fuel and multiply emissions.</li>
+            <li>Tyres and brakes shed microplastics and metal dust as they wear.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">~15%</span>
+            <span class="stat-cap">of global CO<sub>2</sub> comes from road transport — and a far larger share of urban air toxicity</span>
+          </div>
+          <div class="bar-set" aria-hidden="true">
+            <div class="bar-row"><span>Traffic</span><div class="bar"><i style="--w:86%"></i></div></div>
+            <div class="bar-row"><span>Industry</span><div class="bar"><i style="--w:64%"></i></div></div>
+            <div class="bar-row"><span>Waste burning</span><div class="bar"><i style="--w:38%"></i></div></div>
+          </div>
+          <p class="bar-note">Relative contribution to urban nitrogen oxides.</p>
+        </article>
+
+        <article class="cause-panel" data-panel="industry">
+          <h3>Factory smoke</h3>
+          <p>
+            Power stations, steel mills, cement kilns, brick fields and chemical plants
+            burn fuel at enormous scale. Their chimneys release sulphur dioxide,
+            nitrogen oxides, heavy metals and clouds of fine ash — often far above the
+            neighbourhoods of the people who work there.
+          </p>
+          <ul class="ticks">
+            <li>Sulphur dioxide from smokestacks returns to earth as acid rain.</li>
+            <li>Cement production alone accounts for around 7% of global CO<sub>2</sub> emissions.</li>
+            <li>Filters and scrubbers can cut smokestack pollution by more than 90%.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">~2/3</span>
+            <span class="stat-cap">of global greenhouse gas emissions come from energy supply and industry combined</span>
+          </div>
+          <div class="bar-set" aria-hidden="true">
+            <div class="bar-row"><span>NO<sub>x</sub> from industry</span><div class="bar"><i style="--w:64%"></i></div></div>
+            <div class="bar-row"><span>SO<sub>2</sub> from industry</span><div class="bar"><i style="--w:78%"></i></div></div>
+            <div class="bar-row"><span>Heavy metals</span><div class="bar"><i style="--w:55%"></i></div></div>
+          </div>
+          <p class="bar-note">Typical share of industrial origin in urban inventories.</p>
+        </article>
+
+        <article class="cause-panel" data-panel="fossil">
+          <h3>Burning fossil fuels</h3>
+          <p>
+            Coal, oil and gas power our electricity, our factories, our heating and —
+            for 2.1 billion people — our cooking. When they burn, carbon that was
+            locked underground for millions of years is released as CO<sub>2</sub>,
+            the main driver of global warming, alongside soot and sulphur.
+          </p>
+          <ul class="ticks">
+            <li>Household smoke from wood, coal and dung kills more than 3 million people a year.</li>
+            <li>Coal-fired power releases more CO<sub>2</sub> per unit of electricity than any other source.</li>
+            <li>Fossil fuel combustion is responsible for about three-quarters of global greenhouse gas emissions.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">2.1B</span>
+            <span class="stat-cap">people have no access to clean cooking fuels — the invisible indoor smog</span>
+          </div>
+          <div class="bar-set" aria-hidden="true">
+            <div class="bar-row"><span>Coal</span><div class="bar"><i style="--w:92%"></i></div></div>
+            <div class="bar-row"><span>Oil</span><div class="bar"><i style="--w:72%"></i></div></div>
+            <div class="bar-row"><span>Gas</span><div class="bar"><i style="--w:48%"></i></div></div>
+          </div>
+          <p class="bar-note">Relative CO<sub>2</sub> intensity per unit of energy.</p>
+        </article>
+
+        <article class="cause-panel" data-panel="forest">
+          <h3>Deforestation</h3>
+          <p>
+            Forests are the planet's lungs: they absorb carbon dioxide and filter dust,
+            pollen and smoke from the air. When they are cleared by slash-and-burn
+            farming, logging or land conversion, the stored carbon is released and the
+            fires themselves blanket whole regions in smoke.
+          </p>
+          <ul class="ticks">
+            <li>Around 10 million hectares of forest — an area the size of Iceland — are lost every year.</li>
+            <li>Burning forest releases decades of stored carbon in a matter of days.</li>
+            <li>Without tree cover, soil dries and blows away as lung-damaging dust.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">~10M ha</span>
+            <span class="stat-cap">of forest lost annually — and with it a natural air filter for entire regions</span>
+          </div>
+          <div class="bar-set" aria-hidden="true">
+            <div class="bar-row"><span>Carbon released by burning</span><div class="bar"><i style="--w:88%"></i></div></div>
+            <div class="bar-row"><span>Lost filtration capacity</span><div class="bar"><i style="--w:70%"></i></div></div>
+            <div class="bar-row"><span>Dust from bare soil</span><div class="bar"><i style="--w:44%"></i></div></div>
+          </div>
+          <p class="bar-note">Illustrative scale of impact.</p>
+        </article>
+
+        <article class="cause-panel" data-panel="waste">
+          <h3>Waste burning</h3>
+          <p>
+            The world generates more than two billion tonnes of municipal waste a year,
+            and at least a third of it is dumped or burned in the open. Plastic,
+            rubber, batteries and food waste smoulder in streets, fields and landfill
+            sites, releasing dioxins, furans, black carbon and toxic metals.
+          </p>
+          <ul class="ticks">
+            <li>Burning one kilogram of mixed plastic can release thousands of harmful compounds.</li>
+            <li>Landfill fires are hard to extinguish and can smoulder for months.</li>
+            <li>Black carbon from open burning accelerates the melting of snow and ice.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">33%</span>
+            <span class="stat-cap">of the world's waste is openly dumped or burned — often beside homes and schools</span>
+          </div>
+          <div class="bar-set" aria-hidden="true">
+            <div class="bar-row"><span>Dioxins</span><div class="bar"><i style="--w:80%"></i></div></div>
+            <div class="bar-row"><span>Black carbon</span><div class="bar"><i style="--w:66%"></i></div></div>
+            <div class="bar-row"><span>Toxic metals</span><div class="bar"><i style="--w:52%"></i></div></div>
+          </div>
+          <p class="bar-note">Relative hazard of open waste burning emissions.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 03 · EFFECTS ══════════════════ -->
+<section class="section" id="effects">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">03</span>
+      <div>
+        <p class="eyebrow">What it does to us</p>
+        <h2>Four victims of the same smoke</h2>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Effects of air pollution" data-reveal>
+      <button class="tab is-active" role="tab" aria-selected="true" data-tab="health">Human health</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="animals">Animals</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="plants">Plants &amp; crops</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="environment">Environment</button>
+    </div>
+
+    <div class="tab-panels">
+      <article class="tab-panel is-active" data-tabpanel="health">
+        <div class="tp-text">
+          <h3>Human health</h3>
+          <p>
+            Air pollution is now the second-largest risk factor for death in the world.
+            Fine particles slip past the lungs' defences and enter the bloodstream,
+            inflaming blood vessels and stressing the heart. The damage is slow,
+            cumulative and largely invisible until it is severe.
+          </p>
+          <ul class="ticks">
+            <li><strong>Heart and stroke:</strong> fine particles are linked to heart attacks, hypertension and strokes.</li>
+            <li><strong>Lungs:</strong> asthma attacks, chronic bronchitis, COPD and lung cancer.</li>
+            <li><strong>Children:</strong> reduced lung growth, more infections, and lifelong vulnerability.</li>
+            <li><strong>Brain:</strong> growing evidence links long-term exposure to dementia and cognitive decline.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">8.1M</span>
+            <span class="stat-cap">deaths in 2021 were linked to air pollution — about one in every eight deaths worldwide</span>
+          </div>
+        </div>
+        <div class="tp-figure" aria-hidden="true">
+          <div class="lung">
+            <span class="lung-label">PM<sub>2.5</sub> entry</span>
+            <div class="lungs-icon">
+              <svg viewBox="0 0 200 190" role="img" aria-label="Illustration of fine particles entering the lungs and bloodstream">
+                <defs>
+                  <linearGradient id="lungGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="currentColor" stop-opacity=".28"/>
+                    <stop offset="1" stop-color="currentColor" stop-opacity=".04"/>
+                  </linearGradient>
+                </defs>
+                <!-- trachea -->
+                <path d="M100 6 V58" stroke="currentColor" stroke-width="7" stroke-linecap="round" fill="none" opacity=".35"/>
+                <path d="M100 50 L84 72 M100 50 L116 72" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none" opacity=".45"/>
+                <!-- left lobe -->
+                <path d="M92 62 C72 68 56 96 52 138 C50 156 60 168 74 166 C88 164 92 148 94 118 C95 96 95 76 92 62 Z"
+                      fill="url(#lungGrad)" stroke="currentColor" stroke-width="1.6" opacity=".95"/>
+                <!-- right lobe -->
+                <path d="M108 62 C128 68 144 96 148 138 C150 156 140 168 126 166 C112 164 108 148 106 118 C105 96 105 76 108 62 Z"
+                      fill="url(#lungGrad)" stroke="currentColor" stroke-width="1.6" opacity=".95"/>
+                <circle class="p-dot d1" cx="72" cy="120" r="3"/>
+                <circle class="p-dot d2" cx="66" cy="146" r="2.5"/>
+                <circle class="p-dot d3" cx="131" cy="112" r="3.2"/>
+                <circle class="p-dot d4" cx="140" cy="142" r="2"/>
+                <circle class="p-dot d5" cx="118" cy="150" r="2.6"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="tab-panel" data-tabpanel="animals">
+        <div class="tp-text">
+          <h3>Animals &amp; wildlife</h3>
+          <p>
+            Wildlife breathes the same air we do. Birds, mammals and insects show the
+            effects first — in their lungs, their behaviour and their numbers. Because
+            animals cannot move indoors or wear a mask, they are living indicators of
+            how polluted a place really is.
+          </p>
+          <ul class="ticks">
+            <li><strong>Birds:</strong> urban sparrow numbers fell sharply during the smog years of the 1950s and 60s; today, traffic soot is linked to smaller lungs in city birds.</li>
+            <li><strong>Pollinators:</strong> ozone destroys the scent trails flowers use to attract bees and butterflies, disrupting pollination.</li>
+            <li><strong>Livestock:</strong> chronic exposure causes respiratory disease and lower milk and meat yields.</li>
+            <li><strong>Food chains:</strong> heavy metals such as mercury accumulate from insects to fish to eagles and people.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">Bioindicators</span>
+            <span class="stat-cap">Lichens and mosses absorb pollution straight from the air — ecologists read them like a thermometer for air quality</span>
+          </div>
+        </div>
+        <div class="tp-figure" aria-hidden="true">
+          <div class="figure-quote">
+            <p>“When the air is sick, the birds leave first.”</p>
+            <span>— an observation repeated in cities from London to Delhi</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tab-panel" data-tabpanel="plants">
+        <div class="tp-text">
+          <h3>Plants &amp; crops</h3>
+          <p>
+            Plants have no lungs, but they breathe through thousands of tiny pores
+            called stomata. Pollutants block those pores, burn leaf tissue and steal
+            the sunlight a plant needs to make food — which is why pollution is
+            measured not only in hospitals but in harvests.
+          </p>
+          <ul class="ticks">
+            <li><strong>Ozone:</strong> the most damaging pollutant for agriculture; it scars leaves and can cut wheat and soybean yields significantly.</li>
+            <li><strong>Acid rain:</strong> washes nutrients out of soil and leaves roots weak and stunted.</li>
+            <li><strong>Soot deposits:</strong> coat leaves, blocking light and reducing photosynthesis.</li>
+            <li><strong>Nitrogen overload:</strong> excess nitrogen from the air fertilises some plants and starves others, changing entire ecosystems.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">~5–15%</span>
+            <span class="stat-cap">of staple crop harvests in heavily polluted regions can be lost to ground-level ozone</span>
+          </div>
+        </div>
+        <div class="tp-figure" aria-hidden="true">
+          <div class="figure-quote">
+            <p>“Every leaf is a filter. Every harvest is a measurement.”</p>
+            <span>— why farmers are among the first to feel air pollution</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tab-panel" data-tabpanel="environment">
+        <div class="tp-text">
+          <h3>The environment</h3>
+          <p>
+            Pollution does not stay where it is released. Winds carry it across
+            borders, rain washes it into rivers and lakes, and soot settles on
+            glaciers hundreds of kilometres away. The natural systems that clean our
+            air and water are themselves being damaged by it.
+          </p>
+          <ul class="ticks">
+            <li><strong>Acid rain:</strong> acidifies lakes and soils, killing fish, insects and forest roots.</li>
+            <li><strong>Brown clouds:</strong> regional haze dims sunlight and disrupts rainfall patterns.</li>
+            <li><strong>Melting ice:</strong> black carbon darkens snow and glaciers, making them absorb more heat and melt faster.</li>
+            <li><strong>Heritage:</strong> acid gases corrode stone — from the Taj Mahal to ancient cathedrals.</li>
+          </ul>
+          <div class="stat-strip">
+            <span class="stat-big">Transboundary</span>
+            <span class="stat-cap">Air pollution has no borders: emissions from one country can darken skies in another</span>
+          </div>
+        </div>
+        <div class="tp-figure" aria-hidden="true">
+          <div class="figure-quote">
+            <p>“Smoke always comes down somewhere.”</p>
+            <span>— the physics behind acid rain and contaminated soil</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 04 · CLIMATE ══════════════════ -->
+<section class="section section-alt" id="climate">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">04</span>
+      <div>
+        <p class="eyebrow">The climate link</p>
+        <h2>Cleaning the air cools the planet</h2>
+      </div>
+    </div>
+
+    <div class="climate-grid">
+      <div class="climate-copy" data-reveal>
+        <p>
+          Air pollution and climate change are not two crises. They are the same fire
+          seen from two angles. The gases that choke our cities are the same gases
+          that trap heat in the atmosphere — and the warming they cause, in turn,
+          makes pollution worse.
+        </p>
+        <p>
+          Wildfires, heatwaves and droughts are becoming more frequent and severe.
+          Fires release enormous clouds of smoke, heat accelerates the chemical
+          reactions that form ozone, and dry soil blows away as dust. The result is a
+          feedback loop: warmer air produces more pollution, and more pollution
+          accelerates the warming.
+        </p>
+        <div class="callout" data-reveal>
+          <h3>One action, two victories</h3>
+          <p>
+            Because both problems share the same sources, cutting fossil fuels,
+            restoring forests and reducing waste delivers what scientists call
+            <strong>co-benefits</strong>: cleaner lungs today and a cooler climate
+            tomorrow.
+          </p>
+        </div>
+      </div>
+
+      <div class="climate-rows" data-reveal>
+        <div class="c-row">
+          <div class="c-cell"><span class="c-tag">Air pollutant</span><strong>CO<sub>2</sub></strong></div>
+          <div class="c-arrow" aria-hidden="true">→</div>
+          <div class="c-cell"><span class="c-tag">Climate impact</span><span>The main greenhouse gas; traps heat for centuries.</span></div>
+        </div>
+        <div class="c-row">
+          <div class="c-cell"><span class="c-tag">Air pollutant</span><strong>Black carbon</strong></div>
+          <div class="c-arrow" aria-hidden="true">→</div>
+          <div class="c-cell"><span class="c-tag">Climate impact</span><span>Soot absorbs sunlight and darkens ice — a powerful short-term warmer.</span></div>
+        </div>
+        <div class="c-row">
+          <div class="c-cell"><span class="c-tag">Air pollutant</span><strong>Ozone (O<sub>3</sub>)</strong></div>
+          <div class="c-arrow" aria-hidden="true">→</div>
+          <div class="c-cell"><span class="c-tag">Climate impact</span><span>A greenhouse gas that also damages crops and forests.</span></div>
+        </div>
+        <div class="c-row">
+          <div class="c-cell"><span class="c-tag">Air pollutant</span><strong>Methane (CH<sub>4</sub>)</strong></div>
+          <div class="c-arrow" aria-hidden="true">→</div>
+          <div class="c-cell"><span class="c-tag">Climate impact</span><span>Warms the atmosphere dozens of times more than CO<sub>2</sub> and fuels ozone formation.</span></div>
+        </div>
+        <div class="c-row">
+          <div class="c-cell"><span class="c-tag">Air pollutant</span><strong>Sulphate aerosols</strong></div>
+          <div class="c-arrow" aria-hidden="true">→</div>
+          <div class="c-cell"><span class="c-tag">Climate impact</span><span>Reflect sunlight and mask part of the warming — one reason clean-up must be paired with deep CO<sub>2</sub> cuts.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loop" data-reveal>
+      <h3 class="sub-head">The feedback loop</h3>
+      <div class="loop-track">
+        <div class="loop-step"><span class="ls-num">1</span><p>Fossil fuels release CO<sub>2</sub>, soot and gases</p></div>
+        <div class="loop-step"><span class="ls-num">2</span><p>The atmosphere warms; heatwaves and droughts intensify</p></div>
+        <div class="loop-step"><span class="ls-num">3</span><p>Wildfires and dust storms release more smoke and particles</p></div>
+        <div class="loop-step"><span class="ls-num">4</span><p>Hotter air forms more ozone, harming crops and people</p></div>
+        <div class="loop-step loop-close"><span class="ls-num">↺</span><p>...which drives more burning, more warming, more pollution</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 05 · EVIDENCE ══════════════════ -->
+<section class="section" id="evidence">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">05</span>
+      <div>
+        <p class="eyebrow">Real-life evidence</p>
+        <h2>What the world has already proved</h2>
+      </div>
+    </div>
+    <p class="section-lead" data-reveal>
+      Air pollution is not a prophecy of doom — it is a problem with a track record.
+      These three cases show what happens when we ignore the smoke, and what happens
+      when we act.
+    </p>
+
+    <div class="cases">
+      <article class="case" data-reveal>
+        <header class="case-head">
+          <span class="case-year">1952</span>
+          <h3>The Great Smog of London</h3>
+          <span class="case-place">United Kingdom</span>
+        </header>
+        <p>
+          For five days in December, a thick fog of coal smoke settled over London and
+          refused to lift. Buses stopped, cinemas closed, and hospitals filled with
+          people who could not breathe. At least 4,000 people died within weeks; later
+          estimates put the total near 12,000.
+        </p>
+        <p class="case-outcome">
+          <strong>The turning point:</strong> public outrage led to the Clean Air Act
+          of 1956, which banned coal smoke in cities. It became the blueprint for clean
+          air laws around the world.
+        </p>
+        <div class="case-tag">Public pressure → legislation → saved lives</div>
+      </article>
+
+      <article class="case" data-reveal>
+        <header class="case-head">
+          <span class="case-year">2013</span>
+          <h3>Beijing's "airpocalypse"</h3>
+          <span class="case-place">China</span>
+        </header>
+        <p>
+          In January 2013, fine-particle levels in Beijing soared to readings many
+          times the safety limit — at times over 20 times the WHO's recommended
+          ceiling. Visibility collapsed, schools closed and the government faced
+          public anger it could no longer ignore.
+        </p>
+        <div class="mini-chart" role="img" aria-label="Chart showing Beijing annual PM2.5 falling from 89.5 micrograms per cubic metre in 2013 to about 32 in 2023">
+          <div class="chart-bars">
+            <div class="chart-col"><i style="--h:100%"></i><span>2013</span><b>89.5</b></div>
+            <div class="chart-col"><i style="--h:90%"></i><span>2015</span><b>80.6</b></div>
+            <div class="chart-col"><i style="--h:65%"></i><span>2017</span><b>58.0</b></div>
+            <div class="chart-col"><i style="--h:47%"></i><span>2019</span><b>42.0</b></div>
+            <div class="chart-col"><i style="--h:37%"></i><span>2021</span><b>33.0</b></div>
+            <div class="chart-col"><i style="--h:36%"></i><span>2023</span><b>32.0</b></div>
+          </div>
+          <p class="chart-cap">Annual average PM<sub>2.5</sub> in Beijing (µg/m³). Figures rounded from official and independent monitoring.</p>
+        </div>
+        <p class="case-outcome">
+          <strong>The turning point:</strong> a national action plan shut coal plants,
+          restricted cars and moved heavy industry. Within a decade, Beijing's fine-particle
+          pollution fell by roughly <strong>60%</strong> — proof that rapid change is possible.
+        </p>
+      </article>
+
+      <article class="case" data-reveal>
+        <header class="case-head">
+          <span class="case-year">2019</span>
+          <h3>The Ultra Low Emission Zone</h3>
+          <span class="case-place">London, United Kingdom</span>
+        </header>
+        <p>
+          London introduced a charge on the most polluting vehicles entering the city
+          centre, then expanded it to cover a far larger area. The money raised funds
+          public transport, walking and cycling infrastructure.
+        </p>
+        <div class="case-metrics">
+          <div><span class="cm-num">~45%</span><span class="cm-cap">fall in roadside nitrogen dioxide in central London</span></div>
+          <div><span class="cm-num">Millions</span><span class="cm-cap">of people now breathe legally compliant air</span></div>
+        </div>
+        <p class="case-outcome">
+          <strong>The turning point:</strong> pricing the dirtiest vehicles out of the
+          city changed behaviour within months, not decades.
+        </p>
+      </article>
+    </div>
+
+    <div class="fact-strip" data-reveal>
+      <div class="fact"><span class="fact-num">7</span><span class="fact-cap">countries met the WHO fine-particle limit in 2024</span></div>
+      <div class="fact"><span class="fact-num">1 in 8</span><span class="fact-cap">deaths worldwide is linked to polluted air</span></div>
+      <div class="fact"><span class="fact-num">5 µg/m³</span><span class="fact-cap">is the WHO's recommended annual ceiling for PM<sub>2.5</sub></span></div>
+      <div class="fact"><span class="fact-num">3 min</span><span class="fact-cap">without air — the limit for human survival</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 06 · AIR QUALITY ══════════════════ -->
+<section class="section section-alt" id="airquality">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">06</span>
+      <div>
+        <p class="eyebrow">Reading the sky</p>
+        <h2>How air quality is measured</h2>
+      </div>
+    </div>
+    <p class="section-lead" data-reveal>
+      Air quality is reported as an index — a simple score built from pollutant
+      concentrations. Select a level to see what it means for the people breathing it.
+    </p>
+
+    <div class="aqi" data-reveal>
+      <div class="aqi-scale" id="aqiScale" role="tablist" aria-label="Air quality index levels">
+        <button class="aqi-seg" role="tab" aria-selected="false" data-aqi="0" style="--c:#00e400">
+          <span class="aqi-name">Good</span><span class="aqi-range">0–50</span>
+        </button>
+        <button class="aqi-seg" role="tab" aria-selected="false" data-aqi="1" style="--c:#ffff00">
+          <span class="aqi-name">Moderate</span><span class="aqi-range">51–100</span>
+        </button>
+        <button class="aqi-seg" role="tab" aria-selected="false" data-aqi="2" style="--c:#ff7e00">
+          <span class="aqi-name">Sensitive</span><span class="aqi-range">101–150</span>
+        </button>
+        <button class="aqi-seg is-active" role="tab" aria-selected="true" data-aqi="3" style="--c:#ff0000">
+          <span class="aqi-name">Unhealthy</span><span class="aqi-range">151–200</span>
+        </button>
+        <button class="aqi-seg" role="tab" aria-selected="false" data-aqi="4" style="--c:#8f3f97">
+          <span class="aqi-name">Very unhealthy</span><span class="aqi-range">201–300</span>
+        </button>
+        <button class="aqi-seg" role="tab" aria-selected="false" data-aqi="5" style="--c:#7e0023">
+          <span class="aqi-name">Hazardous</span><span class="aqi-range">301+</span>
+        </button>
+      </div>
+
+      <div class="aqi-panel" id="aqiPanel" aria-live="polite">
+        <div class="aqi-panel-head">
+          <span class="aqi-dot" id="aqiDot"></span>
+          <h3 id="aqiTitle">Unhealthy</h3>
+          <span class="aqi-pm" id="aqiPm">PM<sub>2.5</sub> 55.5–125.4 µg/m³</span>
+        </div>
+        <p id="aqiDesc">Everyone may begin to feel effects. Sensitive groups — children, older adults, and people with heart or lung disease — are at serious risk.</p>
+        <p class="aqi-advice"><strong>What to do:</strong> <span id="aqiAdvice">Reduce outdoor exercise, keep windows closed during peak hours, and wear a well-fitted mask if you must be outside for long.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 07 · SOLUTIONS ══════════════════ -->
+<section class="section" id="solutions">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">07</span>
+      <div>
+        <p class="eyebrow">What works</p>
+        <h2>Five solutions within reach</h2>
+      </div>
+    </div>
+    <p class="section-lead" data-reveal>
+      None of these requires a new technology. Each one exists today, is already
+      working somewhere in the world, and improves health and climate at the same time.
+    </p>
+
+    <div class="solutions">
+      <article class="sol" data-reveal>
+        <span class="sol-num">01</span>
+        <h3>Choose public transport</h3>
+        <p>
+          A full bus can carry fifty people in the road space of three cars. Trains,
+          buses, cycling and walking cut emissions per person dramatically — and they
+          clean the air in the same streets where children walk to school.
+        </p>
+        <p class="sol-impact">Start small: one car-free day a week. Electric buses and trains make the gain even larger.</p>
+      </article>
+
+      <article class="sol" data-reveal>
+        <span class="sol-num">02</span>
+        <h3>Plant and protect trees</h3>
+        <p>
+          Trees filter dust, absorb carbon dioxide and release oxygen. One mature tree
+          can capture around 22 kg of CO<sub>2</sub> a year and shade a street enough to
+          cool it by several degrees, which in turn reduces the ozone that heat creates.
+        </p>
+        <p class="sol-impact">Green corridors along roads cut the pollution that pedestrians actually breathe.</p>
+      </article>
+
+      <article class="sol" data-reveal>
+        <span class="sol-num">03</span>
+        <h3>Switch to renewable energy</h3>
+        <p>
+          Wind and solar power generate electricity with no smokestack at all. Across
+          their full life cycle they emit a small fraction of the carbon dioxide of
+          coal — roughly 10 to 50 grams per kilowatt-hour, compared with about 800 for
+          coal.
+        </p>
+        <p class="sol-impact">The cheapest new electricity in most of the world is now renewable.</p>
+      </article>
+
+      <article class="sol" data-reveal>
+        <span class="sol-num">04</span>
+        <h3>Reduce and never burn waste</h3>
+        <p>
+          Refuse, reuse, repair, recycle, compost. Keeping organic waste out of
+          landfills prevents methane, and not burning plastic prevents dioxins. A third
+          of the world's waste is still dumped or burned in the open.
+        </p>
+        <p class="sol-impact">Segregate at home. Compost food scraps. Report open burning.</p>
+      </article>
+
+      <article class="sol" data-reveal>
+        <span class="sol-num">05</span>
+        <h3>Build environmental awareness</h3>
+        <p>
+          Laws follow public demand. Clean air zones, stricter fuel standards and
+          investment in transit all began with people who understood the problem and
+          spoke about it. Awareness is not a soft solution — it is the one that makes
+          the others possible.
+        </p>
+        <p class="sol-impact">Share what you learn. Ask your school, workplace and city what their air quality is.</p>
+      </article>
+    </div>
+
+    <div class="score" data-reveal>
+      <div class="score-copy">
+        <p class="eyebrow">Your turn</p>
+        <h3>Your clean-air score</h3>
+        <p>Tick the actions you already take. Your score updates instantly — it is a starting point, not a test.</p>
+        <div class="score-actions" id="scoreActions">
+          <label class="chk"><input type="checkbox" data-points="2"><span>Walk, cycle or take the bus for short trips</span></label>
+          <label class="chk"><input type="checkbox" data-points="2"><span>Use public transport at least once a week</span></label>
+          <label class="chk"><input type="checkbox" data-points="2"><span>Plant or care for a tree</span></label>
+          <label class="chk"><input type="checkbox" data-points="1"><span>Switch off lights and unplug unused devices</span></label>
+          <label class="chk"><input type="checkbox" data-points="2"><span>Segregate waste and never burn it</span></label>
+          <label class="chk"><input type="checkbox" data-points="1"><span>Talk to someone about air pollution</span></label>
+        </div>
+      </div>
+      <div class="score-gauge">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="gauge-track" cx="100" cy="100" r="82" />
+          <circle class="gauge-fill" id="gaugeFill" cx="100" cy="100" r="82" />
+        </svg>
+        <div class="gauge-text">
+          <span id="scoreNum">0</span><small>/ 10</small>
+        </div>
+        <p class="gauge-msg" id="scoreMsg" aria-live="polite">Every action counts. Start with one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 08 · IDEAS ══════════════════ -->
+<section class="section section-alt" id="ideas">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">08</span>
+      <div>
+        <p class="eyebrow">Creative ideas</p>
+        <h2>Projects you can actually start</h2>
+      </div>
+    </div>
+    <p class="section-lead" data-reveal>
+      Awareness grows fastest when it becomes something people can see, touch and
+      join. These are ideas a school, club or neighbourhood can begin this month.
+    </p>
+
+    <div class="ideas">
+      <article class="idea" data-reveal>
+        <span class="idea-icon" aria-hidden="true">01</span>
+        <h3>Adopt-a-tree with a name tag</h3>
+        <p>Give every planted sapling a QR code tag linking to its species, its carbon uptake and the student caring for it. People protect what they feel responsible for.</p>
+      </article>
+      <article class="idea" data-reveal>
+        <span class="idea-icon" aria-hidden="true">02</span>
+        <h3>A sensor on the school roof</h3>
+        <p>A low-cost fine-particle sensor streams readings to a public map. Students turn raw numbers into charts, posters and letters to local officials.</p>
+      </article>
+      <article class="idea" data-reveal>
+        <span class="idea-icon" aria-hidden="true">03</span>
+        <h3>The white-cloth experiment</h3>
+        <p>Hang a white cloth near a busy road for a week, then beside a park. The grey difference is a lesson no textbook can match — and a photograph that changes minds.</p>
+      </article>
+      <article class="idea" data-reveal>
+        <span class="idea-icon" aria-hidden="true">04</span>
+        <h3>Car-Free Friday</h3>
+        <p>One street, one morning a week, closed to engines and open to walking, cycling and play. Measure the air before and after, and publish the results.</p>
+      </article>
+      <article class="idea" data-reveal>
+        <span class="idea-icon" aria-hidden="true">05</span>
+        <h3>A living green wall</h3>
+        <p>Cover a bare sun-facing wall with climbing plants or a vertical garden. It cools the classroom, filters dust from the windows and becomes a habitat for insects.</p>
+      </article>
+      <article class="idea" data-reveal>
+        <span class="idea-icon" aria-hidden="true">06</span>
+        <h3>Art from filtered air</h3>
+        <p>Artists have turned the soot collected by air filters into dark inks and paintings. A jar of grey dust from your own street is a striking, honest exhibit.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 09 · MESSAGE ══════════════════ -->
+<section class="finale" id="pledge">
+  <div class="finale-bg" aria-hidden="true"></div>
+  <div class="wrap finale-inner">
+    <p class="eyebrow" data-reveal>The message</p>
+    <h2 class="finale-title" data-reveal>
+      The sky does not belong to any one country,<br />
+      any one industry, or any one generation.
+    </h2>
+    <p class="finale-text" data-reveal>
+      Every breath we take connects us to the air that passes through forests,
+      crosses borders and settles in the lungs of a child we will never meet. Air
+      pollution is not a natural disaster. It is a choice — made daily, by the way we
+      travel, build, power and consume. And a choice can always be made differently.
+    </p>
+    <p class="finale-text" data-reveal>
+      The world has already proved it. London's smog became legislation. Beijing's
+      grey skies became a 60% cut in fine particles. A single charge on dirty vehicles
+      changed how millions of people move. None of it was inevitable. All of it began
+      with people who refused to accept that the air had to be like this.
+    </p>
+    <p class="finale-punch" data-reveal>
+      Clean air is not a privilege. It is the most basic condition of life —
+      and it is still within our reach.
+    </p>
+
+    <div class="pledge-box" data-reveal>
+      <p>Add your name to the promise: <em>I will protect the air I breathe.</em></p>
+      <form class="pledge-form" id="pledgeForm" novalidate>
+        <label class="sr-only" for="pledgeName">Your name</label>
+        <input id="pledgeName" type="text" placeholder="Your name" autocomplete="name" maxlength="40" />
+        <button class="btn btn-primary" type="submit">Take the pledge</button>
+      </form>
+      <p class="pledge-count" aria-live="polite">
+        <strong id="pledgeCount">0</strong> <span id="pledgeWord">people</span> have taken the pledge on this device.
+      </p>
+    </div>
+
+    <div class="finale-actions" data-reveal>
+      <a class="btn btn-ghost" href="#top">Back to the beginning</a>
+      <a class="btn btn-ghost" href="#solutions">Review the solutions</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <span class="brand-text">AIR<span class="brand-slash">/</span>PROJECT</span>
+      <p class="footer-note">
+        A student project on air pollution — its causes, consequences, and the
+        solutions that already work.
+      </p>
+    </div>
+    <div class="sources">
+      <h4>Sources &amp; further reading</h4>
+      <ul>
+        <li>World Health Organization — Air quality guidelines (2021) and air pollution fact sheets</li>
+        <li>Health Effects Institute — <em>State of Global Air 2024</em></li>
+        <li>UN Environment Programme — air quality and short-lived climate pollutants</li>
+        <li>IQAir — <em>World Air Quality Report 2024</em></li>
+        <li>IPCC — emission factors and climate assessments</li>
+        <li>European Environment Agency — air quality in Europe</li>
+        <li>FAO — global forest resources assessment</li>
+        <li>World Bank — <em>What a Waste 2.0</em></li>
+        <li>US EPA — air quality index and Clean Air Act records</li>
+        <li>Greater London Authority — Ultra Low Emission Zone reports</li>
+      </ul>
+      <p class="disclaimer">
+        Figures are rounded for clarity and drawn from the published sources above.
+        Local values vary by city, season and measurement method.
+      </p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>Breathe. Then act.</span>
+    <span>Built with HTML, CSS &amp; JavaScript</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
